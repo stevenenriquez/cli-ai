@@ -2,6 +2,7 @@
 ## First Steps
 1. Clone this repo 
 2. Navigate to the directory `cli-ai` where you cloned this repository
+3. Install dependencies via `npm install`
 3. Make a new file with the name `.env`
     * The `.env` file is mentioned in this repo's `.gitignore` to help you not accidently commit any values in this file. Remember, **do not commit this file**
 2. Go to openai.com, login and retrieve your API token
