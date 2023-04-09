@@ -3,7 +3,7 @@ dotenv.config();
 import readline from 'readline-sync';
 import { Configuration, OpenAIApi } from "openai";
 import { MODEL } from './constants/model.js';
-import { CHAT_EXIT_CMD, CHAT_PREFIX_ASSISTANT, CHAT_PREFIX_USER } from './constants/chat.js';
+import { CHAT_EXIT_CMD, CHAT_PREFIX_ASSISTANT, CHAT_PREFIX_USER, CHAT_ROLE } from './constants/chat.js';
 
 const configuration = new Configuration({
     apiKey: process.env.OPENAI_API_KEY,
@@ -28,11 +28,11 @@ while(requestCount < MAX_CHAT_REQUESTS) {
     }
 
     for (const [input, completion] of history) {
-        messages.push({role: "user", content: input});
-        messages.push({role: "assistant", content: completion});
+        messages.push({role: CHAT_ROLE.USER, content: input});
+        messages.push({role: CHAT_ROLE.ASSISTANT, content: completion});
     }
 
-    messages.push({role: "user", content: userInput});
+    messages.push({role: CHAT_ROLE.USER, content: userInput});
 
     try {
         const chatCompletion = await openai.createChatCompletion({

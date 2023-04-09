@@ -1,4 +1,4 @@
-export const CHAT_ROLES = Object.freeze({
+export const CHAT_ROLE = Object.freeze({
     SYSTEM: 'system',
     ASSISTANT: 'assistant',
     USER: 'user',
